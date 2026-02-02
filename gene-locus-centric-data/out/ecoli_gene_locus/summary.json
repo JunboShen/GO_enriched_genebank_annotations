@@ -1,0 +1,13 @@
+{
+  "species": "ecoli_k12",
+  "tax_id": "511145",
+  "num_genes_total": 4506,
+  "num_loci_extracted": 4506,
+  "num_missing_contig_in_fasta": 0,
+  "num_invalid_coordinates": 0,
+  "num_entrez_mapped": 4506,
+  "num_go_labeled": 3913,
+  "locus_length_min": 27,
+  "locus_length_median": 792.0,
+  "locus_length_max": 7020
+}

@@ -1,0 +1,17 @@
+# OS / editor junk
+.DS_Store
+
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Gene-locus-centric pipeline: downloaded inputs can be huge (kept local)
+gene-locus-centric-data/data/
+
+# Gene-locus-centric pipeline: outputs can be huge (keep only small E. coli TSV/JSON example)
+gene-locus-centric-data/out/**
+!gene-locus-centric-data/out/ecoli_gene_locus/
+!gene-locus-centric-data/out/ecoli_gene_locus/*.tsv
+!gene-locus-centric-data/out/ecoli_gene_locus/*.json
+gene-locus-centric-data/out/ecoli_gene_locus/loci.fasta

@@ -5,6 +5,7 @@ This repo is a small demo showing that **GenBank → GO/GO‑slim** can produce 
 ## Results
 
 - `ecoli_go_enriched_table.csv` — final concept table (E. coli example; no raw DNA stored)
+- `gene-locus-centric-data/` — DNACLIP-style **gene-locus** preprocessing (gene start→end, strand-aware) with GO labels
 - `stats/` — all the frequency summaries used below
 - `figures/` — pipeline overview figure(s)
 
@@ -109,7 +110,18 @@ The goal is to attach **multi‑label concepts** to each sequence/feature so you
 
 ---
 
-## (Optional) Scripts in this demo
+# Gene‑locus‑centric preprocessing (DNACLIP-style)
 
-- `build_ecoli_go_enriched_table.py` — builds `ecoli_go_enriched_table.csv` + `stats/`
-- `generate_pipeline_figures.py` — regenerates PNGs in `figures/`
+The original demo above is **feature/CDS-centric** (GenBank features → GO/GO‑slim concept table). In `gene-locus-centric-data/` there is an alternative preprocessing path that is **gene‑locus‑centric**:
+
+- **Instance** = one gene
+- **Sequence** = contiguous genomic span `start→end` (strand-aware; reverse-complement on `-`)
+- **Labels** = gene-level GO terms from `gene2go` (optionally GO-slim later)
+
+**Outputs (E. coli example)** are in `gene-locus-centric-data/out/ecoli_gene_locus/`:
+
+- `genes.tsv` — gene manifest (coordinates + IDs)
+- `loci.tsv` — locus metadata (length, coordinates, strand)
+- `labels_go.tsv` — GO labels per gene (also split by BP/MF/CC)
+- `summary.json` — basic QC + coverage stats
+- `loci.fasta` — gene-locus DNA sequences
